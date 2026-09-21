@@ -50,29 +50,13 @@ find_package(Qt6 COMPONENTS
         Svg
         Xml
         Qml
-        LinguistTools
         REQUIRED)
 
-qt6_add_resources(RESOURCES_ADD ${RESOURCES})
-
-include_directories(
-        ${Qt6Core_INCLUDE_DIRS}
-        ${Qt6Gui_INCLUDE_DIRS}
-        ${Qt6Widgets_INCLUDE_DIRS}
-        ${Qt6PrintSupport_INCLUDE_DIRS}
-        ${Qt6Sql_INCLUDE_DIRS}
-        ${Qt6Multimedia_INCLUDE_DIRS}
-        ${BASS_INCLUDE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}
-        resources/translations
-        resources/static
-        src/core/update-manager
-        src/utils/widgets/roll-text-browser
-        src/utils/widgets/text-clickable-checkbox
-)
-
-qt_add_translation(QM_FILES ${TS_FILES})
-#add_custom_target(translations DEPENDS ${QM_FILES})
+# Qt6LinguistTools is optioneel — vertalingen worden overgeslagen als het niet beschikbaar is
+find_package(Qt6 COMPONENTS LinguistTools QUIET)
+if(Qt6LinguistTools_FOUND)
+    qt_add_translation(QM_FILES ${TS_FILES})
+endif()
 
 add_executable(${PROJECT_NAME}
         WIN32
