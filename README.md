@@ -212,7 +212,7 @@
 
 De ontwikkelhistorie van dit project in een film:
 
-<video src="https://raw.githubusercontent.com/itsdarklikehell/dm-assist/v1.5-dev/gource.mp4" controls width="100%"></video>
+<video src="https://raw.githubusercontent.com/itsdarklikehell/dm-assist/v1.5-dev/gource-720p-v2.mp4" controls width="100%"></video>
 
 *De video wordt automatisch gegenereerd door de [Gource workflow](.github/workflows/gource.yml) bij elke push.*
 
